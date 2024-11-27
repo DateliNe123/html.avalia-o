@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adicionar Linhas</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      #inputField {
+        padding: 5px;
+        margin-right: 10px;
+      }
+      button {
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Adicionar Linhas de Texto</h1>
+
+    <!-- Input e Button -->
+    <input type="text" id="inputField" placeholder="Digite algo" />
+    <button onclick="adicionarParagrafo()">Adicionar Linha</button>
+
+    <div id="container"></div>
+
+    <script>
+      let contador = 0;
+
+      function adicionarParagrafo() {
+        const input = document.getElementById("inputField").value;
+
+        if (input.trim() !== "") {
+          const novoParagrafo = document.createElement("p");
+          novoParagrafo.textContent = input;
+
+          const container = document.getElementById("container");
+          container.appendChild(novoParagrafo);
+          contador++;
+          document.getElementById("inputField").value = "";
+          alert(`${contador} linha(s) foram adicionadas.`);
+        } else {
+          alert("Por favor, digite algo no campo de texto.");
+        }
+      }
+    </script>
+  </body>
+</html>
